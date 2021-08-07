@@ -1,0 +1,33 @@
+import java.io.*;
+import java.util.*;
+
+public class Person {
+    private int age;	
+  
+	public Person(int initialAge) {
+  		          // Add some more code to run some checks on initialAge
+        if(initialAge >= 0) {            // checking initialAge is not negative, assign to age
+            this.age = initialAge;        // takes an integer (initialAge) as a parameter, assigns to age
+        }else {
+            this.age = 0;
+            System.out.println("Age is not valid, setting age to 0.");
+        }
+	}
+
+	public void amIOld() {
+  		// Write code determining if this person's age is old and print the correct statement:
+        if(this.age < 0) {
+            System.out.println("You are young.");
+        }if(this.age >= 0 && this.age < 13) {
+            System.out.println("You are young.");
+        }if(this.age >= 13 && this.age < 18) {
+            System.out.println("You are a teenager.");
+        }if(this.age >= 18) {
+            System.out.println("You are old.");
+        }
+	}
+
+	public void yearPasses() {
+  		// Increment this person's age.
+          this.age++;
+	}
