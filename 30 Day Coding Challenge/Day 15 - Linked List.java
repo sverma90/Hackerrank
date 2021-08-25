@@ -1,7 +1,5 @@
 import java.util.Scanner;
 
-//path: /Users/soumilverma/Desktop/Java/list2.txt
-
 public class practice {	
 	
 	// properties
