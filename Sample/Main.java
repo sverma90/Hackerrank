@@ -21,7 +21,7 @@ public class Main {
 				var2 = "TEMP" + String.valueOf(count);
 				var3 = "LD\t" + var0 + "\n" + "AD\t" + var1 + "\n" + "ST\t" + var2;
 				stack.push(var3);
-				//System.out.println(var3);
+				System.out.println(var3);
 			}
 			else if(c=='-'){
 				var1 = stack.pop();
@@ -30,7 +30,7 @@ public class Main {
 				var2 = "TEMP" + String.valueOf(count);
 				var3 = "LD\t" + var0 + "\n" + "SB\t" + var1 + "\n" + "ST\t" + var2;
 				stack.push(var3);
-				//System.out.println(var3);
+				System.out.println(var3);
 			}
 			else if(c=='*'){
 				var1 = stack.pop();
@@ -39,7 +39,7 @@ public class Main {
 				var2 = "TEMP" + String.valueOf(count);
 				var3 = "LD\t" + var0 + "\n" + "ML\t" + var1 + "\n" + "ST\t" + var2;
 				stack.push(var3);
-				//System.out.println(var3);
+				System.out.println(var3);
 			}
 			else if(c=='/'){
 				var1 = stack.pop();
@@ -48,12 +48,12 @@ public class Main {
 				var2 = "TEMP" + String.valueOf(count);
 				var3 = "LD\t" + var0 + "\n" + "DV\t" + var1 + "\n" + "ST\t" + var2;
 				stack.push(var3);
-				//System.out.println(var3);
+				System.out.println(var3);
 			}
 			else {
 				stack.push(c+"");
 			}
-			System.out.println(var3);
+			//System.out.println(var3);
 		}	
 	}
 }	
