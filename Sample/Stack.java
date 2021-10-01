@@ -21,7 +21,10 @@ public class Stack {
     
     //isEmpty() method    
     boolean isEmpty(){         			
-        return (top < 0);  
+        if (top > 0)
+            return true;
+        else
+            return false;  
     }  
     
     //push() method
