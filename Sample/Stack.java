@@ -38,14 +38,14 @@ public class Stack {
     }
     
     //pop() method ( was boolean )
-    String pop () {            
-        if (top == -1) {  
+   String pop () {            
+        if (top > -1) {  
             //System.out.println("Stack Underflow !!");  
-            return "Stack Underflow!!!";  
+            return stackArray[top];  
         }  
         else   {  
             previousPopVal = stackArray[top--];
-        	//System.out.println("Item popped: " + previousVal);
+        	//System.out.println("Item popped: " + previousPopVal);
         	return previousPopVal;
             //return true;  
         }  
