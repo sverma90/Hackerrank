@@ -35,7 +35,6 @@ class Student extends Person{
     // Write your constructor here
     
     public Student(String firstName, String lastName, int id, int[] testScores) {
-        // TODO Auto-generated constructor stub
         super(firstName, lastName, id);
         this.setTestScores(testScores);
     }
@@ -47,7 +46,6 @@ class Student extends Person{
     // Write your method here
     
     public String calculate() {
-        // TODO Auto-generated method stub
         int var = 0, val = 0;
         String grade = null;
         for(int i = 0; i < testScores.length; i++) {
