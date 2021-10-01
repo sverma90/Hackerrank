@@ -1,12 +1,8 @@
 import java.io.FileNotFoundException;
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
  
 public class test {
      
@@ -49,56 +45,80 @@ public class test {
 		String var0="", var1="", var2="", var3="";
 		int count = 0; 
 		
-		String postfix = expression;	//ABC*+DE-/
-		
-		Stack stack = new Stack(postfix.length());
-		for (int i = 0; i < postfix.length() ; i++) {
-			c = postfix.charAt(i);
+		//String postfix = expression;	//ABC*+DE-/
+		String fullOutput = ""; 
+		Stack stack = new Stack(expression.length());
+		for (int i = 0; i < expression.length() ; i++) {
+			c = expression.charAt(i);
+			
 			if(c=='+'){
 				var1 = stack.pop();
 				var0 = stack.pop();
+				if(var1 == "Stack Empty" || var0 == "Stack Empty"){
+					var3 = "Expression is not in postfix format.";
+					fullOutput+=var3;
+				}else{ 
 				count=count+1; 
 				var2 = "TEMP" + String.valueOf(count);
-				var3 = "LD\t" + var0 + "\n" + "AD\t" + var1 + "\n" + "ST\t" + var2;
-				stack.push(var3);
-				return var3;
+				var3 = "LD\t" + var0 + "\n" + "AD\t" + var1 + "\n" + "ST\t" + var2 + "\n";
+				stack.push(var2);
+				fullOutput += var3;
+				}
 				//System.out.println(var3);
 			}
 			else if(c=='-'){
 				var1 = stack.pop();
 				var0 = stack.pop();
+				if(var1 == "Stack Empty" || var0 == "Stack Empty"){
+					var3 = "Expression is not in postfix format.";
+					fullOutput+=var3;
+				}else{ 
 				count=count+1; 
 				var2 = "TEMP" + String.valueOf(count);
-				var3 = "LD\t" + var0 + "\n" + "SB\t" + var1 + "\n" + "ST\t" + var2;
-				stack.push(var3);
-				return var3;
+				var3 = "LD\t" + var0 + "\n" + "SB\t" + var1 + "\n" + "ST\t" + var2 + "\n";
+				stack.push(var2);
+				fullOutput +=  var3;
+				}
 				//System.out.println(var3);
 			}
-			else if(c=='*'){
+			else if(c=='*' || c=='$'){
 				var1 = stack.pop();
 				var0 = stack.pop();
+				if(var1 == "Stack Empty" || var0 == "Stack Empty"){
+					var3 = "Expression is not in postfix format.";
+					fullOutput+=var3;
+				}else{ 
 				count=count+1; 
 				var2 = "TEMP" + String.valueOf(count);
-				var3 = "LD\t" + var0 + "\n" + "ML\t" + var1 + "\n" + "ST\t" + var2;
-				stack.push(var3);
-				return var3;
+				var3 = "LD\t" + var0 + "\n" + "ML\t" + var1 + "\n" + "ST\t" + var2 + "\n";
+				stack.push(var2);
+				fullOutput +=  var3;
+				}
 				//System.out.println(var3);
 			}
 			else if(c=='/'){
 				var1 = stack.pop();
 				var0 = stack.pop();
+				if(var1 == "Stack Empty" || var0 == "Stack Empty"){
+					var3 = "Expression is not in postfix format.";
+					fullOutput+=var3;
+				}else{ 
 				count=count+1; 
 				var2 = "TEMP" + String.valueOf(count);
-				var3 = "LD\t" + var0 + "\n" + "DV\t" + var1 + "\n" + "ST\t" + var2;
-				stack.push(var3);
-				return var3;
+				var3 = "LD\t" + var0 + "\n" + "DV\t" + var1 + "\n" + "ST\t" + var2 + "\n";
+				stack.push(var2);
+				fullOutput +=  var3;
+				}
 				//System.out.println(var3);
 			}
-			else {
+			else if (c >= 'A' && c <= 'Z') {
 				stack.push(c+"");
+			}
+			else {
+				System.out.println("Error in postfix expression.");
 			}
 			//System.out.println(var3);
 		}
-		return var3;
+		return fullOutput;
     }
 }
